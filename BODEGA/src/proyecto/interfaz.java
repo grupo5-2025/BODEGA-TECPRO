@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class interfaz extends JFrame {
 
@@ -153,5 +155,17 @@ public class interfaz extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		
+		JButton btnIngresarDatos = new JButton("Ingresar datos");
+		btnIngresarDatos.setBounds(981, 281, 140, 33);
+		contentPane.add(btnIngresarDatos);
+		
+		JButton btnGenerarBolelta = new JButton("Generar boleta");
+		btnGenerarBolelta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnGenerarBolelta.setBounds(655, 387, 140, 33);
+		contentPane.add(btnGenerarBolelta);
 	}
 }
