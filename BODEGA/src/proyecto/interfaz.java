@@ -47,6 +47,8 @@ public class interfaz extends JFrame implements ActionListener {
 	private JButton btnIngresarDatos;
 	private JButton btnGenerarBolelta;
 	private JButton btnRegistrar;
+	private JTextField txtCodconsul;
+	private JTextArea textArea;
 
 	/**
 	 * Launch the application.
@@ -213,13 +215,41 @@ public class interfaz extends JFrame implements ActionListener {
 				}
 			}
 			{
-				panel_1 = new JPanel();
-				tabbedPane.addTab("Consulta ", null, panel_1, null);
-			}
-			{
 				panel_2 = new JPanel();
 				tabbedPane.addTab("Proveedores", null, panel_2, null);
 				panel_2.setLayout(null);
+			}
+			{
+				panel_1 = new JPanel();
+				tabbedPane.addTab("Consulta ", null, panel_1, null);
+				panel_1.setLayout(null);
+				
+				JLabel lblNewLabel_3 = new JLabel("Ingresar código de producto : ");
+				lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				lblNewLabel_3.setBounds(27, 27, 230, 30);
+				panel_1.add(lblNewLabel_3);
+				
+				txtCodconsul = new JTextField();
+				txtCodconsul.setBounds(223, 35, 96, 19);
+				panel_1.add(txtCodconsul);
+				txtCodconsul.setColumns(10);
+				
+				JButton btnNewButton = new JButton("Consultar");
+				btnNewButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+					}
+				});
+				btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+				btnNewButton.setBounds(349, 34, 85, 21);
+				panel_1.add(btnNewButton);
+				
+				JScrollPane scrollPane_1 = new JScrollPane();
+				scrollPane_1.setBounds(27, 75, 414, 351);
+				panel_1.add(scrollPane_1);
+				{
+					textArea = new JTextArea();
+					scrollPane_1.setViewportView(textArea);
+				}
 			}
 		}
 	}
