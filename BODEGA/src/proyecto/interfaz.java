@@ -49,6 +49,7 @@ public class interfaz extends JFrame implements ActionListener {
 	private JButton btnRegistrar;
 	private JTextField txtCodconsul;
 	private JTextArea textArea;
+	private JButton btnBorrar;
 
 	/**
 	 * Launch the application.
@@ -212,6 +213,11 @@ public class interfaz extends JFrame implements ActionListener {
 					btnRegistrar = new JButton("Registrar");
 					btnRegistrar.setBounds(728, 76, 140, 33);
 					panel.add(btnRegistrar);
+				}
+				{
+					btnBorrar = new JButton("Borrar");
+					btnBorrar.setBounds(971, 401, 140, 33);
+					panel.add(btnBorrar);
 				}
 			}
 			{
