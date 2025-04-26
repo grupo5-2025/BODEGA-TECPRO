@@ -15,7 +15,7 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class interfaz extends JFrame {
+public class interfaz extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -28,6 +28,8 @@ public class interfaz extends JFrame {
 	private JTextField txtprecio;
 	private JTextField txttotal;
 	private JTextField txtprove;
+	private JButton btnIngresarDatos;
+	private JButton btnRegistrar;
 
 	/**
 	 * Launch the application.
@@ -81,10 +83,6 @@ public class interfaz extends JFrame {
 		txtcantidad.setColumns(10);
 		txtcantidad.setBounds(502, 69, 112, 19);
 		contentPane.add(txtcantidad);
-		
-		JButton btnNewButton = new JButton("Registrar");
-		btnNewButton.setBounds(706, 62, 140, 33);
-		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("Producto");
 		lblNewLabel_2.setBounds(655, 128, 73, 24);
@@ -156,7 +154,8 @@ public class interfaz extends JFrame {
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
 		
-		JButton btnIngresarDatos = new JButton("Ingresar datos");
+		btnIngresarDatos = new JButton("Ingresar datos");
+		btnIngresarDatos.addActionListener(this);
 		btnIngresarDatos.setBounds(981, 281, 140, 33);
 		contentPane.add(btnIngresarDatos);
 		
@@ -167,5 +166,23 @@ public class interfaz extends JFrame {
 		});
 		btnGenerarBolelta.setBounds(655, 387, 140, 33);
 		contentPane.add(btnGenerarBolelta);
+		
+		btnRegistrar = new JButton("Registrar");
+		btnRegistrar.addActionListener(this);
+		btnRegistrar.setBounds(738, 62, 140, 33);
+		contentPane.add(btnRegistrar);
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnRegistrar) {
+			do_btnRegistrar_actionPerformed(e);
+		}
+		if (e.getSource() == btnIngresarDatos) {
+			do_btnIngresarDatos_actionPerformed(e);
+		}
+	}
+	protected void do_btnIngresarDatos_actionPerformed(ActionEvent e) {
+	}
+	protected void do_btnRegistrar_actionPerformed(ActionEvent e) {
+        getToolkit().getDefaultToolkit().beep();
 	}
 }
