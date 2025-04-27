@@ -7,12 +7,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
+import java.text.BreakIterator;
 import java.awt.event.ActionEvent;
 import javax.swing.JTabbedPane;
 
@@ -23,26 +26,25 @@ public class interfaz extends JFrame implements ActionListener {
 	private JTabbedPane tabbedPane;
 	private JPanel panel;
 	private JPanel panel_1;
-	private JPanel panel_2;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
-	private JTextField textField;
+	private JTextField txtcode;
 	private JLabel lblNewLabel_1_1;
-	private JTextField textField_1;
+	private JTextField txtcant;
 	private JLabel lblNewLabel_2;
-	private JTextField textField_2;
+	private JTextField txtprodu;
 	private JLabel lblNewLabel_2_1;
-	private JTextField textField_3;
+	private JTextField txtdni;
 	private JLabel lblNewLabel_2_1_1;
 	private JLabel lblNewLabel_2_1_1_1;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField txtsotckact;
+	private JTextField txtstockrest;
 	private JLabel lblNewLabel_2_1_1_2;
 	private JLabel lblNewLabel_2_1_1_1_1;
-	private JTextField textField_6;
-	private JTextField textField_7;
+	private JTextField txtpreciounitario;
+	private JTextField txttotal;
 	private JLabel lblNewLabel_2_2;
-	private JTextField textField_8;
+	private JTextField txtprovee;
 	private JScrollPane scrollPane;
 	private JButton btnIngresarDatos;
 	private JButton btnGenerarBolelta;
@@ -99,10 +101,10 @@ public class interfaz extends JFrame implements ActionListener {
 					panel.add(lblNewLabel_1);
 				}
 				{
-					textField = new JTextField();
-					textField.setColumns(10);
-					textField.setBounds(141, 83, 134, 19);
-					panel.add(textField);
+					txtcode = new JTextField();
+					txtcode.setColumns(10);
+					txtcode.setBounds(141, 83, 134, 19);
+					panel.add(txtcode);
 				}
 				{
 					lblNewLabel_1_1 = new JLabel("Cantidad a adquirir:");
@@ -111,10 +113,10 @@ public class interfaz extends JFrame implements ActionListener {
 					panel.add(lblNewLabel_1_1);
 				}
 				{
-					textField_1 = new JTextField();
-					textField_1.setColumns(10);
-					textField_1.setBounds(492, 83, 112, 19);
-					panel.add(textField_1);
+					txtcant = new JTextField();
+					txtcant.setColumns(10);
+					txtcant.setBounds(492, 83, 112, 19);
+					panel.add(txtcant);
 				}
 				{
 					lblNewLabel_2 = new JLabel("Producto");
@@ -122,11 +124,11 @@ public class interfaz extends JFrame implements ActionListener {
 					panel.add(lblNewLabel_2);
 				}
 				{
-					textField_2 = new JTextField();
-					textField_2.setEditable(false);
-					textField_2.setColumns(10);
-					textField_2.setBounds(728, 145, 156, 19);
-					panel.add(textField_2);
+					txtprodu = new JTextField();
+					txtprodu.setEditable(false);
+					txtprodu.setColumns(10);
+					txtprodu.setBounds(728, 145, 156, 19);
+					panel.add(txtprodu);
 				}
 				{
 					lblNewLabel_2_1 = new JLabel("Ingresar DNI:");
@@ -134,10 +136,10 @@ public class interfaz extends JFrame implements ActionListener {
 					panel.add(lblNewLabel_2_1);
 				}
 				{
-					textField_3 = new JTextField();
-					textField_3.setColumns(10);
-					textField_3.setBounds(1015, 145, 96, 19);
-					panel.add(textField_3);
+					txtdni = new JTextField();
+					txtdni.setColumns(10);
+					txtdni.setBounds(1015, 145, 96, 19);
+					panel.add(txtdni);
 				}
 				{
 					lblNewLabel_2_1_1 = new JLabel("Stock actual:");
@@ -150,16 +152,18 @@ public class interfaz extends JFrame implements ActionListener {
 					panel.add(lblNewLabel_2_1_1_1);
 				}
 				{
-					textField_4 = new JTextField();
-					textField_4.setColumns(10);
-					textField_4.setBounds(729, 192, 96, 19);
-					panel.add(textField_4);
+					txtsotckact = new JTextField();
+					txtsotckact.setEditable(false);
+					txtsotckact.setColumns(10);
+					txtsotckact.setBounds(729, 192, 96, 19);
+					panel.add(txtsotckact);
 				}
 				{
-					textField_5 = new JTextField();
-					textField_5.setColumns(10);
-					textField_5.setBounds(1015, 192, 96, 19);
-					panel.add(textField_5);
+					txtstockrest = new JTextField();
+					txtstockrest.setEditable(false);
+					txtstockrest.setColumns(10);
+					txtstockrest.setBounds(1015, 192, 96, 19);
+					panel.add(txtstockrest);
 				}
 				{
 					lblNewLabel_2_1_1_2 = new JLabel("Precio unitario:");
@@ -172,16 +176,18 @@ public class interfaz extends JFrame implements ActionListener {
 					panel.add(lblNewLabel_2_1_1_1_1);
 				}
 				{
-					textField_6 = new JTextField();
-					textField_6.setColumns(10);
-					textField_6.setBounds(729, 253, 96, 19);
-					panel.add(textField_6);
+					txtpreciounitario = new JTextField();
+					txtpreciounitario.setEditable(false);
+					txtpreciounitario.setColumns(10);
+					txtpreciounitario.setBounds(729, 253, 96, 19);
+					panel.add(txtpreciounitario);
 				}
 				{
-					textField_7 = new JTextField();
-					textField_7.setColumns(10);
-					textField_7.setBounds(1015, 253, 96, 19);
-					panel.add(textField_7);
+					txttotal = new JTextField();
+					txttotal.setEditable(false);
+					txttotal.setColumns(10);
+					txttotal.setBounds(1015, 253, 96, 19);
+					panel.add(txttotal);
 				}
 				{
 					lblNewLabel_2_2 = new JLabel("Proveedor:");
@@ -189,28 +195,36 @@ public class interfaz extends JFrame implements ActionListener {
 					panel.add(lblNewLabel_2_2);
 				}
 				{
-					textField_8 = new JTextField();
-					textField_8.setColumns(10);
-					textField_8.setBounds(728, 307, 156, 19);
-					panel.add(textField_8);
+					txtprovee = new JTextField();
+					txtprovee.setEditable(false);
+					txtprovee.setColumns(10);
+					txtprovee.setBounds(728, 307, 156, 19);
+					panel.add(txtprovee);
 				}
 				{
 					scrollPane = new JScrollPane();
 					scrollPane.setBounds(10, 119, 584, 315);
 					panel.add(scrollPane);
+					{
+						txtS = new JTextArea();
+						scrollPane.setViewportView(txtS);
+					}
 				}
 				{
 					btnIngresarDatos = new JButton("Ingresar datos");
+					btnIngresarDatos.addActionListener(this);
 					btnIngresarDatos.setBounds(971, 295, 140, 33);
 					panel.add(btnIngresarDatos);
 				}
 				{
 					btnGenerarBolelta = new JButton("Generar boleta");
+					btnGenerarBolelta.addActionListener(this);
 					btnGenerarBolelta.setBounds(645, 401, 140, 33);
 					panel.add(btnGenerarBolelta);
 				}
 				{
 					btnRegistrar = new JButton("Registrar");
+					btnRegistrar.addActionListener(this);
 					btnRegistrar.setBounds(728, 76, 140, 33);
 					panel.add(btnRegistrar);
 				}
@@ -219,11 +233,6 @@ public class interfaz extends JFrame implements ActionListener {
 					btnBorrar.setBounds(971, 401, 140, 33);
 					panel.add(btnBorrar);
 				}
-			}
-			{
-				panel_2 = new JPanel();
-				tabbedPane.addTab("Proveedores", null, panel_2, null);
-				panel_2.setLayout(null);
 			}
 			{
 				panel_1 = new JPanel();
@@ -257,8 +266,98 @@ public class interfaz extends JFrame implements ActionListener {
 					scrollPane_1.setViewportView(textArea);
 				}
 			}
+			{
+				panel_2 = new JPanel();
+				tabbedPane.addTab("Proveedores", null, panel_2, null);
+			}
 		}
 	}
+	arreglo tie=new arreglo();
+	public int readcode() {
+		return Integer.parseInt(txtcode.getText());
+	}
+	public int cant() {
+		return Integer.parseInt(txtcant.getText());
+	}
+	private JTextArea txtS;
+	private JPanel panel_2;
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnIngresarDatos) {
+			do_btnIngresarDatos_actionPerformed(e);
+		}
+		if (e.getSource() == btnRegistrar) {
+			do_btnRegistrar_actionPerformed(e);
+		}
+		if (e.getSource() == btnGenerarBolelta) {
+			do_btnGenerarBolelta_actionPerformed(e);
+		}
+	}
+	protected void do_btnGenerarBolelta_actionPerformed(ActionEvent e) {
+		guiboleta bol=new guiboleta();
+		bol.setVisible(true);
+	}
+	protected void do_btnRegistrar_actionPerformed(ActionEvent e) {
+		
+		if(txtcode.getText().isBlank()||txtcant.getText().isBlank()) 
+		{
+		JOptionPane.showMessageDialog(this, "Por favor ingresar cantidad y/o código válidos");
+	}else {
+		clase1 ess=tie.buscar(readcode());
+		if(ess!=null) {
+			if(ess.getStockactual()<cant()) {
+				JOptionPane.showMessageDialog(this, "Stock actual insuficiente");
+			}else {
+				txtprodu.setText(""+ess.getProducto());
+				txtsotckact.setText(""+ess.getStockactual());
+				txtpreciounitario.setText(""+ess.getPreciouni());
+				txtprovee.setText(""+ess.getProveedor());
+				txtstockrest.setText(""+(ess.getStockactual()-cant()));
+				txttotal.setText(""+ess.getPreciouni()*cant());
+			}
+		}else {
+			JOptionPane.showMessageDialog(this, "Códio erróneo o inexistente");
+		}
+		}
+	}
+	
+	protected void do_btnIngresarDatos_actionPerformed(ActionEvent e) {
+		clase1 ess=tie.buscar(readcode());
+		if(txtprodu.getText().isBlank()) JOptionPane.showMessageDialog(this, "Por favor ingrese código de producto y cantidad a adquirir");
+		else 
+		{
+		try 
+		{
+			String tam=txtdni.getText();
+			if(tam.length()!=8) 
+			{
+				JOptionPane.showMessageDialog(this, "El número de DNI debe contener 8 dígitos");
+				return;
+			}
+			else {
+				int dni=Integer.parseInt(txtdni.getText());
+		}
+			txtS.setText("");
+			imprimir(" Código de producto: "+ess.getCodigo()+"\n");
+			imprimir("Producto: "+ess.getProducto()+"\n");
+			imprimir("Cantidad adquirida: "+cant()+"\n");
+			imprimir("DNI: "+txtdni.getText()+"\n");
+			imprimir("Stock: "+ess.getStockactual()+"\n");
+			imprimir("Stock restante: "+txtstockrest.getText()+"\n");
+			imprimir("Proveedor: "+ess.getProveedor()+"\n");
+			imprimir("Precio unitario: "+ess.getPreciouni()+"\n");
+			imprimir("Total a pagar: "+txttotal.getText()+"\n");
+			imprimir();
+			
+		}catch(Exception fd) {
+			JOptionPane.showMessageDialog(this, "Ingresó dni incorrecto");
+		}
+		}
+		
+	}
+	public void imprimir() {
+		txtS.append("--------------------------------------------------------------");
+	}
+	public void imprimir(String g) {
+		txtS.append(g);
 	}
 }

@@ -14,6 +14,7 @@ import java.awt.TextArea;
 import javax.swing.JTextField;
 import javax.swing.Box;
 import java.awt.Panel;
+import javax.swing.JTextArea;
 
 
 public class guiboleta extends JDialog {
@@ -26,17 +27,11 @@ public class guiboleta extends JDialog {
 	private JLabel lblNewLabel_1;
 	private JTextField textField_1;
 	private JLabel lblNewLabel_2;
-	private JScrollPane scrollPane;
 	private JTextField textField_2;
 	private JLabel lblNewLabel_3;
-	private JScrollPane scrollPane_1;
-	private JScrollPane scrollPane_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_5;
-	private JLabel lblNewLabel_7;
-	private JScrollPane scrollPane_4;
-	private JLabel lblNewLabel_8;
 	private Panel panel;
+	private JScrollPane scrollPane;
+	private JTextArea txtS;
 
 	/**
 	 * Launch the application.
@@ -55,8 +50,9 @@ public class guiboleta extends JDialog {
 	 * Create the dialog.
 	 */
 	public guiboleta() {
+		setModal(true);
 		setTitle("BOLETA DE VENTA");
-		setBounds(100, 100, 353, 439);
+		setBounds(100, 100, 434, 463);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -74,15 +70,6 @@ public class guiboleta extends JDialog {
 			contentPanel.add(lblNewLabel_2);
 		}
 		{
-			scrollPane = new JScrollPane();
-			scrollPane.setBounds(10, 156, 102, 233);
-			contentPanel.add(scrollPane);
-			{
-				lblNewLabel_4 = new JLabel("Nombre del Producto");
-				scrollPane.setColumnHeaderView(lblNewLabel_4);
-			}
-		}
-		{
 			textField_2 = new JTextField();
 			textField_2.setEditable(false);
 			textField_2.setBounds(36, 125, 86, 20);
@@ -95,35 +82,8 @@ public class guiboleta extends JDialog {
 			contentPanel.add(lblNewLabel_3);
 		}
 		{
-			scrollPane_1 = new JScrollPane();
-			scrollPane_1.setBounds(122, 156, 46, 233);
-			contentPanel.add(scrollPane_1);
-			{
-				lblNewLabel_5 = new JLabel("Cantidad");
-				scrollPane_1.setColumnHeaderView(lblNewLabel_5);
-			}
-		}
-		{
-			scrollPane_3 = new JScrollPane();
-			scrollPane_3.setBounds(178, 156, 71, 233);
-			contentPanel.add(scrollPane_3);
-			{
-				lblNewLabel_7 = new JLabel("Precio Unitario");
-				scrollPane_3.setColumnHeaderView(lblNewLabel_7);
-			}
-		}
-		{
-			scrollPane_4 = new JScrollPane();
-			scrollPane_4.setBounds(259, 156, 71, 233);
-			contentPanel.add(scrollPane_4);
-			{
-				lblNewLabel_8 = new JLabel("Importe");
-				scrollPane_4.setColumnHeaderView(lblNewLabel_8);
-			}
-		}
-		{
 			panel = new Panel();
-			panel.setBounds(77, 10, 172, 73);
+			panel.setBounds(131, 10, 172, 73);
 			contentPanel.add(panel);
 			{
 				lblNewLabel = new JLabel("BODEGA TECPROO");
@@ -145,6 +105,19 @@ public class guiboleta extends JDialog {
 				panel.add(textField);
 				textField.setEditable(false);
 				textField.setColumns(10);
+			}
+		}
+		{
+			scrollPane = new JScrollPane();
+			scrollPane.setBounds(10, 152, 401, 264);
+			contentPanel.add(scrollPane);
+			{
+				txtS = new JTextArea();
+				txtS.setEditable(false);
+				txtS.setTabSize(10);
+				scrollPane.setViewportView(txtS);
+				txtS.append("   "+"Producto\tCantidad\tPrecio unitario\tImporte total");
+
 			}
 		}
 	}
