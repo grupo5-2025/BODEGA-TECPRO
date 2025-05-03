@@ -223,7 +223,7 @@ public class interfaz extends JFrame implements ActionListener {
 					panel.add(btnGenerarBolelta);
 				}
 				{
-					btnRegistrar = new JButton("Registrar");
+					btnRegistrar = new JButton("Registrar");  
 					btnRegistrar.addActionListener(this);
 					btnRegistrar.setBounds(728, 76, 140, 33);
 					panel.add(btnRegistrar);
