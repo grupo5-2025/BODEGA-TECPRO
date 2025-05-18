@@ -18,6 +18,8 @@ import java.awt.event.ActionListener;
 import java.text.BreakIterator;
 import java.awt.event.ActionEvent;
 import javax.swing.JTabbedPane;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class interfaz extends JFrame implements ActionListener {
 
@@ -51,7 +53,6 @@ public class interfaz extends JFrame implements ActionListener {
 	private JButton btnRegistrar;
 	private JTextField txtCodconsul;
 	private JTextArea textArea;
-	private JButton btnBorrar;
 
 	/**
 	 * Launch the application.
@@ -207,6 +208,7 @@ public class interfaz extends JFrame implements ActionListener {
 					panel.add(scrollPane);
 					{
 						txtS = new JTextArea();
+						txtS.setEditable(false);
 						scrollPane.setViewportView(txtS);
 					}
 				}
@@ -229,9 +231,10 @@ public class interfaz extends JFrame implements ActionListener {
 					panel.add(btnRegistrar);
 				}
 				{
-					btnBorrar = new JButton("Borrar");
-					btnBorrar.setBounds(971, 401, 140, 33);
-					panel.add(btnBorrar);
+					btnRegistrarNuevoStock = new JButton("Registrar nuevo stock");
+					btnRegistrarNuevoStock.addActionListener(this);
+					btnRegistrarNuevoStock.setBounds(888, 401, 195, 33);
+					panel.add(btnRegistrarNuevoStock);
 				}
 			}
 			{
@@ -239,13 +242,13 @@ public class interfaz extends JFrame implements ActionListener {
 				tabbedPane.addTab("Consulta ", null, panel_1, null);
 				panel_1.setLayout(null);
 				
-				JLabel lblNewLabel_3 = new JLabel("Ingresar código de producto : ");
+				JLabel lblNewLabel_3 = new JLabel("Ingresar código: ");
 				lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-				lblNewLabel_3.setBounds(27, 27, 230, 30);
+				lblNewLabel_3.setBounds(320, 18, 230, 30);
 				panel_1.add(lblNewLabel_3);
 				
 				txtCodconsul = new JTextField();
-				txtCodconsul.setBounds(223, 35, 96, 19);
+				txtCodconsul.setBounds(516, 26, 96, 19);
 				panel_1.add(txtCodconsul);
 				txtCodconsul.setColumns(10);
 				
@@ -255,20 +258,133 @@ public class interfaz extends JFrame implements ActionListener {
 					}
 				});
 				btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
-				btnNewButton.setBounds(349, 34, 85, 21);
+				btnNewButton.setBounds(642, 25, 85, 21);
 				panel_1.add(btnNewButton);
 				
 				JScrollPane scrollPane_1 = new JScrollPane();
-				scrollPane_1.setBounds(27, 75, 414, 351);
+				scrollPane_1.setBounds(27, 75, 1064, 351);
 				panel_1.add(scrollPane_1);
 				{
 					textArea = new JTextArea();
+					textArea.setEditable(false);
 					scrollPane_1.setViewportView(textArea);
+				}
+				{
+					lblNewLabel_11 = new JLabel("Consultar:");
+					lblNewLabel_11.setBounds(27, 35, 101, 13);
+					panel_1.add(lblNewLabel_11);
+				}
+				{
+					cbregistrar_nuevo_1 = new JComboBox();
+					cbregistrar_nuevo_1.setModel(new DefaultComboBoxModel(new String[] {"Producto", "Proveedor"}));
+					cbregistrar_nuevo_1.setBounds(122, 31, 115, 21);
+					panel_1.add(cbregistrar_nuevo_1);
 				}
 			}
 			{
 				panel_2 = new JPanel();
-				tabbedPane.addTab("Proveedores", null, panel_2, null);
+				tabbedPane.addTab("Registrar", null, panel_2, null);
+				panel_2.setLayout(null);
+				{
+					lblNewLabel_4 = new JLabel("Registrar nuevo: ");
+					lblNewLabel_4.setBounds(10, 14, 101, 13);
+					panel_2.add(lblNewLabel_4);
+				}
+				{
+					cbregistrar_nuevo = new JComboBox();
+					cbregistrar_nuevo.setModel(new DefaultComboBoxModel(new String[] {"Producto", "Proveedor"}));
+					cbregistrar_nuevo.setBounds(153, 10, 115, 21);
+					panel_2.add(cbregistrar_nuevo);
+				}
+				{
+					lblNewLabel_5 = new JLabel("ID producto");
+					lblNewLabel_5.setBounds(24, 48, 161, 13);
+					panel_2.add(lblNewLabel_5);
+				}
+				{
+					txtregistrar_id_produ = new JTextField();
+					txtregistrar_id_produ.setBounds(10, 71, 96, 19);
+					panel_2.add(txtregistrar_id_produ);
+					txtregistrar_id_produ.setColumns(10);
+				}
+				{
+					lblNewLabel_6 = new JLabel("Nombre producto");
+					lblNewLabel_6.setBounds(195, 48, 161, 13);
+					panel_2.add(lblNewLabel_6);
+				}
+				{
+					txtregis_nombre_produ = new JTextField();
+					txtregis_nombre_produ.setColumns(10);
+					txtregis_nombre_produ.setBounds(176, 71, 130, 19);
+					panel_2.add(txtregis_nombre_produ);
+				}
+				{
+					lblNewLabel_7 = new JLabel("Precio producto");
+					lblNewLabel_7.setBounds(390, 48, 161, 13);
+					panel_2.add(lblNewLabel_7);
+				}
+				{
+					txtregis_precio = new JTextField();
+					txtregis_precio.setColumns(10);
+					txtregis_precio.setBounds(390, 71, 96, 19);
+					panel_2.add(txtregis_precio);
+				}
+				{
+					lblNewLabel_8 = new JLabel("ID proveedor");
+					lblNewLabel_8.setBounds(584, 48, 161, 13);
+					panel_2.add(lblNewLabel_8);
+				}
+				{
+					txtregis_provee = new JTextField();
+					txtregis_provee.setEditable(false);
+					txtregis_provee.setColumns(10);
+					txtregis_provee.setBounds(570, 71, 96, 19);
+					panel_2.add(txtregis_provee);
+				}
+				{
+					lblNewLabel_9 = new JLabel("Nombre proveedor");
+					lblNewLabel_9.setBounds(750, 48, 161, 13);
+					panel_2.add(lblNewLabel_9);
+				}
+				{
+					txtregis_nombreprovee = new JTextField();
+					txtregis_nombreprovee.setEditable(false);
+					txtregis_nombreprovee.setColumns(10);
+					txtregis_nombreprovee.setBounds(736, 71, 130, 19);
+					panel_2.add(txtregis_nombreprovee);
+				}
+				{
+					lblNewLabel_10 = new JLabel("Ruc proveedor");
+					lblNewLabel_10.setBounds(935, 48, 161, 13);
+					panel_2.add(lblNewLabel_10);
+				}
+				{
+					txtregist_ruc = new JTextField();
+					txtregist_ruc.setEditable(false);
+					txtregist_ruc.setColumns(10);
+					txtregist_ruc.setBounds(921, 71, 107, 19);
+					panel_2.add(txtregist_ruc);
+				}
+				{
+					btnNewButton_1 = new JButton("Ingresar datos");
+					btnNewButton_1.setBounds(10, 100, 130, 21);
+					panel_2.add(btnNewButton_1);
+				}
+				{
+					scrollPane_2 = new JScrollPane();
+					scrollPane_2.setBounds(10, 137, 1109, 250);
+					panel_2.add(scrollPane_2);
+					{
+						textArea_1 = new JTextArea();
+						textArea_1.setEditable(false);
+						scrollPane_2.setViewportView(textArea_1);
+					}
+				}
+				{
+					btnNewButton_2 = new JButton("Registrar");
+					btnNewButton_2.setBounds(952, 421, 125, 42);
+					panel_2.add(btnNewButton_2);
+				}
 			}
 		}
 	}
@@ -281,7 +397,31 @@ public class interfaz extends JFrame implements ActionListener {
 	}
 	private JTextArea txtS;
 	private JPanel panel_2;
+	private JButton btnRegistrarNuevoStock;
+	private JLabel lblNewLabel_4;
+	private JComboBox cbregistrar_nuevo;
+	private JLabel lblNewLabel_5;
+	private JTextField txtregistrar_id_produ;
+	private JLabel lblNewLabel_6;
+	private JTextField txtregis_nombre_produ;
+	private JLabel lblNewLabel_7;
+	private JTextField txtregis_precio;
+	private JLabel lblNewLabel_8;
+	private JTextField txtregis_provee;
+	private JLabel lblNewLabel_9;
+	private JTextField txtregis_nombreprovee;
+	private JLabel lblNewLabel_10;
+	private JTextField txtregist_ruc;
+	private JButton btnNewButton_1;
+	private JScrollPane scrollPane_2;
+	private JTextArea textArea_1;
+	private JButton btnNewButton_2;
+	private JLabel lblNewLabel_11;
+	private JComboBox cbregistrar_nuevo_1;
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnRegistrarNuevoStock) {
+			do_btnRegistrarNuevoStock_actionPerformed(e);
+		}
 		if (e.getSource() == btnIngresarDatos) {
 			do_btnIngresarDatos_actionPerformed(e);
 		}
@@ -359,5 +499,9 @@ public class interfaz extends JFrame implements ActionListener {
 	}
 	public void imprimir(String g) {
 		txtS.append(g);
+	}
+	protected void do_btnRegistrarNuevoStock_actionPerformed(ActionEvent e) {
+		guia_remisión bol=new guia_remisión();
+		bol.setVisible(true);
 	}
 }
